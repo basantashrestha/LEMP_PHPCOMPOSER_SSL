@@ -1,0 +1,44 @@
+version: '3'
+services: 
+
+  php:
+    # image: php:7-fpm
+    build: 
+      context: ./docker
+      dockerfile: php.Dockerfile
+    volumes:
+      - './app:/var/www/html'
+    links:
+      - 'mariadb'
+
+  nginx:
+    image: nginx:latest
+    ports:
+      - '80:80'
+      - '443:443'
+    links:
+      - 'php'
+    volumes:
+      - './app:/var/www/html'
+      - './config/nginx:/etc/nginx/conf.d'
+      - './ssl:/etc/nginx/ssl/'
+
+  mariadb:
+    image: mariadb:latest
+    ports:
+      - '3306:3306'
+    environment:
+      - MYSQL_ROOT_PASSWORD=put_your_mysql_root_password 
+    volumes:
+      - './db-data:/var/lib/mysql'
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    links: 
+      - 'mariadb'
+    ports:
+      - '8181:80'
+    environment:
+      - PMA_HOST=mariadb
+      - PMA_USER=root
+      - PMA_PASSWORD=put_your_mysql_root_password
