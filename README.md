@@ -19,3 +19,10 @@ http://sample.localhost.localdomain/info.php
 #To add virtual host. Make corresponding changes. Exmple is given below  
 cp -r app/vhost-sample app/example.com  
 cp config/nginx/vhost-sample.conf to config/nginx/example.com.conf  
+
+
+##For SSL we need to work with real domain . The following video can be helpful   . 
+
+
+https://www.youtube.com/watch?v=m9aa7xqX67c  
+
