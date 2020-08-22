@@ -1,0 +1,4 @@
+<?php
+echo "Libresoft";
+phpinfo();
+?>
