@@ -20,9 +20,13 @@ http://sample.localhost.localdomain/info.php
 cp -r app/vhost-sample app/example.com  
 cp config/nginx/vhost-sample.conf to config/nginx/example.com.conf  
 
+##Access Phpmyadmin   
+http://sample.localhost.localdomain:8181  
+username: root  
+password: your_password(This should be the mysql password you provide on docker-compose.yml file)   
+
 
 ##For SSL we need to work with real domain . The following video can be helpful   . 
-
 
 https://www.youtube.com/watch?v=m9aa7xqX67c  
 

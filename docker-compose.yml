@@ -28,17 +28,15 @@ services:
     ports:
       - '3306:3306'
     environment:
-      - MYSQL_ROOT_PASSWORD=put_your_mysql_root_password 
+      - MYSQL_ROOT_PASSWORD=your_password
     volumes:
       - './db-data:/var/lib/mysql'
 
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
-    links: 
-      - 'mariadb'
     ports:
       - '8181:80'
     environment:
       - PMA_HOST=mariadb
-      - PMA_USER=root
-      - PMA_PASSWORD=put_your_mysql_root_password
+
+
